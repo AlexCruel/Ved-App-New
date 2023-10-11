@@ -1,0 +1,16 @@
+plugin:
+    name: 'admin.localization::lang.plugin.name'
+    description: 'admin.localization::lang.plugin.description'
+    author: admin
+    icon: oc-icon-language
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Локализация
+        url: /
+        icon: icon-language
+        sideMenu:
+            side-menu-localpages:
+                label: Страницы
+                url: admin/localization/localpages
+                icon: icon-pencil

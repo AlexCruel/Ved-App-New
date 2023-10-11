@@ -1,0 +1,10 @@
+name: Localpages
+form: $/admin/localization/models/localpage/fields.yaml
+modelClass: Admin\Localization\Models\Localpage
+defaultRedirect: admin/localization/localpages
+create:
+    redirect: 'admin/localization/localpages/update/:id'
+    redirectClose: admin/localization/localpages
+update:
+    redirect: admin/localization/localpages
+    redirectClose: admin/localization/localpages

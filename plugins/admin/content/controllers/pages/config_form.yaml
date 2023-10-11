@@ -1,0 +1,10 @@
+name: Pages
+form: $/admin/content/models/page/fields.yaml
+modelClass: Admin\Content\Models\Page
+defaultRedirect: admin/content/pages
+create:
+    redirect: 'admin/content/pages/update/:id'
+    redirectClose: admin/content/pages
+update:
+    redirect: admin/content/pages
+    redirectClose: admin/content/pages

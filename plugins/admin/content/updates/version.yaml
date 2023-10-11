@@ -1,0 +1,29 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table admin_content_pages'
+    - builder_table_create_admin_content_pages.php
+v1.0.3:
+    - 'Created table admin_content_pages_ru'
+    - builder_table_create_admin_content_pages_ru.php
+v1.0.4:
+    - 'Updated table admin_content_pages_ru'
+    - builder_table_update_admin_content_pages_localization.php
+v1.0.5:
+    - 'Updated table admin_content_pages_localization'
+    - builder_table_update_admin_content_localizations.php
+v1.0.6:
+    - 'Updated table admin_content_localizations'
+    - builder_table_update_admin_content_pages_localizations.php
+v1.0.7:
+    - 'Created table admin_content_localizations'
+    - builder_table_create_admin_content_localizations.php
+v1.0.8:
+    - 'Updated table admin_content_pages_localizations'
+    - builder_table_update_admin_content_localizations_pages.php
+v1.0.9:
+    - 'Drop table admin_content_localizations'
+    - builder_table_delete_admin_content_localizations.php
+v1.0.10:
+    - 'Drop table admin_content_localizations_pages'
+    - builder_table_delete_admin_content_localizations_pages.php

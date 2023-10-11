@@ -1,0 +1,26 @@
+tabs:
+    fields:
+        pages:
+            label: Relation
+            nameFrom: code
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    content:
+        label: Content
+        span: auto
+        type: textarea
+    code:
+        label: Code
+        options:
+            ru: 'Русская версия'
+            eng: 'Английская версия'
+        showSearch: true
+        span: auto
+        type: dropdown
