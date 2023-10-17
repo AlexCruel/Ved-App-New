@@ -1,0 +1,14 @@
+.container-form {
+    width: 50%;
+
+    input, textarea {
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container-form {
+        width: 75%;
+    }
+}
