@@ -1,13 +1,48 @@
-// Override Bootstrap's Sass default variables
-//
-// Nearly all variables in Bootstrap are written with the `!default` flag.
-// This allows you to override the default values of those variables before
-// you import Bootstrap's source Sass files.
-//
-// Overriding the default variable values is the best way to customize your
-// CSS without writing _new_ styles. For example, change you can either change
-// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
-// `body { color: red; }`.
+// Colors
+$primary: #c167ef;
+$secondary: #10bcee;
+$dark: #2b3041;
+$light: #f3f6f9;
+
+// Navbar
+$navbar-padding-y: 1rem;
+$navbar-dark-color: #fff;
+
+// Buttons
+$button-radius: 50px;
+$button-padding-x: 30px;
+$button-padding-y: 10px;
+
+$btn-border-radius: $button-radius;
+$btn-border-radius-sm: $button-radius;
+$btn-border-radius-lg: $button-radius;
+$btn-padding-x: $button-padding-x;
+$btn-padding-x-sm: $button-padding-x;
+$btn-padding-x-lg: $button-padding-x;
+$btn-padding-y: $button-padding-y;
+$btn-padding-y-sm: $button-padding-y;
+$btn-padding-y-lg: $button-padding-y;
+$navbar-toggler-border-radius: 5px;
+
+// Spacers
+$spacer: 1rem !default;
+$spacers: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 6,
+    7: $spacer * 8,
+    8: $spacer * 12,
+) !default;
+
+$line-height-base: 1.7;
+$headings-margin-bottom: $spacer * 1;
+
+$enable-negative-margins: true;
+
 //
 // Bring in Bootstrap
 //

@@ -1,16 +1,4 @@
-@import "main";
-
-.navbar {
-    width: 95%;
-    margin: 10px auto;
-
-    .container-fluid {
-        .nav-link {
-            color: $link-color;
-        }
-
-        .btn {
-            color: $btn-link-color;
-        }
-    }
+.header {
+    background: url('../images/header-background.jpg') center center no-repeat;
+    background-size: cover;
 }
