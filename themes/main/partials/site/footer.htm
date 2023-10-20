@@ -3,31 +3,51 @@ scss[] = "footer.scss"
 ==
 {% styles %}
 
-<footer class="footer-container mt-4 mb-4">
-    <div class="row m-auto text-center">
-        <div class="col-md-6">
-            <div class="fs-3 fw-semibold">Контакты</div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <i class="fa-solid fa-phone fa-lg"></i>
-                    <a href="tel:+375444444444" class="fs-5 text-decoration-none link-dark">+375 44 444 44 44</a>
-                </li>
-                <li class="list-group-item">
-                    <i class="fa-solid fa-phone fa-lg"></i>
-                    <a href="tel:+375444444444" class="fs-5 text-decoration-none link-dark">+375 44 444 44 44</a>
-                </li>
-            </ul>
+<section class="text-bg-dark py-5 overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center fs-4">
+                <p>
+                    Роднее, чем бабушкины пирожки
+                </p>
+                <div class="social-icons d-flex justify-content-center gap-4">
+                    <a href="tel:+375292236684"><i class="fa fa-phone fa-beat fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fa-solid fa-paper-plane fa-2x"></i></a>
+                </div>
+                <p class="lead pt-4">
+                    <a href="tel:+375292236684" class="link-underline link-underline-opacity-0">+375 (29) 223 66 84</a>
+                </p>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div class="fs-3 fw-semibold py-1">Социальные сети</div>
-            <ul class="list-group d-flex flex-row justify-content-center">
-                <li class="list-group-item">
-                    <a href="#" class="fs-2"><i class="fa-brands fa-vk fa-2xl"></i></a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" class="fs-2"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-                </li>
-            </ul>
+    </div>
+</section>
+
+<footer class="footer border-top border-primary bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="nav d-flex justify-content-md-start justify-content-center">
+                    <li class="nav-item">
+                        <a href="/myoctober" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/myoctober/calendar" class="nav-link">Календарь</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/myoctober/blog" class="nav-link">Блог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/myoctober/events" class="nav-link">Мероприятия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/myoctober/about" class="nav-link">Обо мне</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <p class="text-md-end text-center">Все права защищены &copy; LOGONAME 2023</p>
+            </div>
         </div>
     </div>
 </footer>
