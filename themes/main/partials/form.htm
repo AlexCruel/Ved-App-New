@@ -1,21 +1,43 @@
 [resources]
 scss[] = "form.scss"
 ==
-<div class="container-form m-auto mt-5">
-    <div class="display-4 fw-bold text-center mb-3">Напиши!</div>
-    <form>
-      <div class="mb-3">
-        <input type="email" class="form-control" id="exampleInputName" placeholder="Имя">
-      </div>
-      <div class="mb-3">
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Номер телефона" aria-describedby="phoneHelp">
-        <div id="phoneHelp" class="form-text">Я никому не сообщу Ваш номер телефона.</div>
-      </div>
-      <div class="mb-3">
-          <textarea class="form-control" rows="5" placeholder="Ваше сообщение"></textarea>
-      </div>
-      <div class="text-center">
-          <button type="submit" class="btn btn-dark btn-lg">Отправить</button>
-      </div>
-    </form>
-</div>
+<section class="contact bg-light pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <p class="display-6 fw-semibold text-center">Связаться со мной</p>
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            name="name"
+                            placeholder="Ваше имя"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <input
+                            type="email"
+                            class="form-control form-control-lg"
+                            name="email"
+                            placeholder="Номер телефона"
+                        />
+                    </div>
+                    <div class="mb-3">
+                <textarea
+                    class="form-control form-control-lg"
+                    name="message"
+                    rows="6"
+                    placeholder="Сообщение"
+                ></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary text-white mt-3">
+                            Отправить сообщение
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
