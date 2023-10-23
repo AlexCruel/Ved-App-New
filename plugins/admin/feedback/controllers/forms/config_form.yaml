@@ -1,0 +1,11 @@
+name: Forms
+modelClass: Admin\Feedback\Models\Form
+form: $/admin/feedback/models/form/fields.yaml
+defaultRedirect: admin/feedback/forms
+create:
+    redirect: 'admin/feedback/forms/update/:id'
+    redirectClose: admin/feedback/forms
+update:
+    redirect: admin/feedback/forms
+    redirectClose: admin/feedback/forms
+preview: {  }

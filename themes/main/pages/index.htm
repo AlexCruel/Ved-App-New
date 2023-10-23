@@ -1,16 +1,29 @@
 url = "/"
 layout = "default"
 title = "Главная страница"
-==
 
+[FullFormFeedback]
+
+[EmailFormFeedback]
+==
+<?php
+function onTest()
+{
+    //$value1 = input('value1');
+    //$value2 = input('value2');
+    //$this['result'] = $value1 + $value2;
+    //dd($value1);
+    $this['result'] = input('email');
+}
+?>
+==
 {% partial "header" %}
 
 <div class="fs-1 m-auto mb-4 text-center" style="width: 95%;">Мероприятия</div>
 {% partial "carousel" %}
-<!--{% partial "events/events" %}-->
 
 {% partial "statement" %}
 
 {% partial "calendar" %}
 
-{% partial "form" %}
+{% component 'FullFormFeedback' %}

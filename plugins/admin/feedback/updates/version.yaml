@@ -1,0 +1,8 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table admin_feedback_forms'
+    - builder_table_create_admin_feedback_forms.php
+v1.0.3:
+    - 'Updated table admin_feedback_forms'
+    - builder_table_update_admin_feedback_forms.php

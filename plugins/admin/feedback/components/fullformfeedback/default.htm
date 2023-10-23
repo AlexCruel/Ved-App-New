@@ -1,12 +1,9 @@
-[resources]
-scss[] = "form.scss"
-==
 <section class="contact bg-light pb-4">
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <p class="display-6 fw-semibold text-center">Связаться со мной</p>
-                <form action="" method="POST">
+                <form data-request="onFullForm">
                     <div class="mb-3">
                         <input
                             type="text"
@@ -41,3 +38,7 @@ scss[] = "form.scss"
         </div>
     </div>
 </section>
+
+<div id="successToast" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+<div id="errorToast" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+

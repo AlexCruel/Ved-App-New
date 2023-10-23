@@ -1,0 +1,11 @@
+plugin:
+    name: 'admin.feedback::lang.plugin.name'
+    description: 'admin.feedback::lang.plugin.description'
+    author: admin
+    icon: oc-icon-comment
+    homepage: ''
+navigation:
+    main-menu-feedback:
+        label: 'Обратная связь'
+        url: admin/feedback/forms
+        icon: icon-comment

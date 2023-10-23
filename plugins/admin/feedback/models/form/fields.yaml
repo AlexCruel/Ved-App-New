@@ -1,0 +1,25 @@
+fields:
+    created_at:
+        label: 'Дата создания'
+        mode: date
+        span: auto
+        disabled: 1
+        readOnly: 0
+        type: datepicker
+    name:
+        label: Имя
+        span: auto
+        type: text
+    phone:
+        label: Телефон
+        span: auto
+        type: text
+    email:
+        label: Email
+        span: auto
+        type: text
+    message:
+        label: Сообщение
+        size: large
+        span: full
+        type: textarea

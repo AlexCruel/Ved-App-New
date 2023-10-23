@@ -2,7 +2,17 @@
 js[] = "header.js"
 scss[] = "header.scss"
 ==
-
+<?php
+function onTest()
+{
+    //$value1 = input('value1');
+    //$value2 = input('value2');
+    //$this['result'] = $value1 + $value2;
+    //dd($value1);
+    $this['result'] = input('email');
+}
+?>
+==
 <!-- Header -->
 <header class="header">
     <!-- Hero -->
@@ -23,16 +33,7 @@ scss[] = "header.scss"
                             которое очарует Вас и Ваших близких.
                         </p>
                         <!-- Form -->
-                        <div class="form-container text-center">
-                            <form>
-                                <div class="my-4">
-                                    <input type="email" class="form-control form-control-lg rounded-5" placeholder="Email" />
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary btn-lg text-white">Связаться со мной</button>
-                                </div>
-                            </form>
-                        </div>
+                        {% component 'EmailFormFeedback' %}
                     </div>
                 </div>
             </div>

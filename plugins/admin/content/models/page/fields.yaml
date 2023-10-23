@@ -1,9 +1,0 @@
-fields:
-    code:
-        label: Code
-        span: auto
-        type: text
-    banner:
-        label: Banner
-        span: auto
-        type: text
