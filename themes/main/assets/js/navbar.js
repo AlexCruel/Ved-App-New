@@ -12,4 +12,4 @@ function userScroll() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', userScroll);
+document.addEventListener('render', userScroll);
