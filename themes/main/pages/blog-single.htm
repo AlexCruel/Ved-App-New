@@ -1,0 +1,16 @@
+url = "/blog/:slug"
+layout = "default"
+title = "Статья"
+
+[section blogSingle]
+handle = "Blog\Post"
+identifier = "slug"
+isDefault = 0
+==
+{% partial "header-pages" %}
+
+<div class="container">
+    <div class="my-5">
+        {{blogSingle.content|raw}}
+    </div>
+</div>

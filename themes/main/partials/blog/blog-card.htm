@@ -1,0 +1,35 @@
+[collection blog]
+handle = "Blog\Post"
+==
+<div class="container my-5">
+    <div class="mb-5 d-flex flex-wrap gap-5 justify-content-center">
+        {% for item in blog %}
+        <div class="card" style="width: 18rem;">
+<!--            <img src={{"assets/images/blog.png"|theme}} class="card-img-top" alt="blog">-->
+            <img src={{item.banner.path}} class="card-img-top" alt="blog">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.featured_text}}</p>
+                <p>{{item.published_at_date|date('j M Y')}}</p>
+                <a href="{{'blog-single'|page({slug: item.slug})}}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
