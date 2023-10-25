@@ -6,6 +6,7 @@ title = "Блог"
 handle = "Blog\Post"
 recordsPerPage = 3
 pageNumber = "{{ :page }}"
+sortDirection = "asc"
 ==
 <?php
 use Tailor\Models\EntryRecord;
@@ -47,7 +48,9 @@ function onStart()
             <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.featured_text}}</p>
-                <p>{{item.published_at_date|date('j M Y')}}</p>
+            </div>
+            <div class="pb-2 px-3">
+                <p class="fw-semibold opacity-50">{{item.published_at_date|date('j M Y')}}</p>
                 <a href="{{'blog-single'|page({slug: item.slug})}}" class="btn btn-primary text-white fw-semibold">Подробнее</a>
             </div>
         </div>

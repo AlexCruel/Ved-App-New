@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="mb-5 d-flex flex-wrap gap-5 justify-content-center">
+        {% for item in blog %}
+        <div class="card" style="width: 18rem;">
+            <img src={{item.banner.path}} class="card-img-top" alt="blog">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.featured_text}}</p>
+            </div>
+            <div class="pb-2 px-3">
+                <p class="fw-semibold opacity-50">{{item.published_at_date|date('j M Y')}}</p>
+                <a href="{{'blog-single'|page({slug: item.slug})}}" class="btn btn-primary text-white fw-semibold">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

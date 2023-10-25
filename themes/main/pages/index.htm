@@ -5,14 +5,21 @@ title = "Главная страница"
 [FullFormFeedback]
 
 [EmailFormFeedback]
+
+[collection blog]
+handle = "Blog\Post"
+recordsPerPage = 3
 ==
 {% partial "header" %}
 
-<div class="fs-1 m-auto mb-4 text-center" style="width: 95%;">Мероприятия</div>
+<div class="fs-1 m-auto mb-3 text-center" style="width: 95%;">Мероприятия</div>
 {% partial "carousel" %}
 
 {% partial "statement" %}
 
 {% partial "calendar" %}
+
+<div class="fs-1 m-auto mb-3 text-center" style="width: 95%;">Блог</div>
+{% partial "blog" %}
 
 {% component 'FullFormFeedback' %}
