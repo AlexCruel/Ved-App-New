@@ -1,7 +1,85 @@
-url = "/blog"
+url = "/blog/:page?"
 layout = "default"
 title = "Блог"
+
+[collection blog]
+handle = "Blog\Post"
+recordsPerPage = 2
+pageNumber = "{{ :page }}"
 ==
+<?php
+use Tailor\Models\EntryRecord;
+
+function onStart()
+{
+    $blogArray = array();
+
+    foreach ($this->blog as $item)
+    {
+        array_push($blogArray, $item);
+    }
+
+    if (!count($blogArray))
+    {
+        return Redirect::to('/404');
+    } else {
+        $records = EntryRecord::inSection('Blog\Post')->get();
+        $pageNumbers = array();
+
+        for ($i = 0; $i < ceil(count($records) / 2); $i++)
+        {
+            array_push($pageNumbers, $i);
+        }
+
+        $this['pageNumbers'] = count($pageNumbers);
+    }
+}
+?>
+==
+<!-- Vars -->
+{% set pageNumber = this.param.page == '' ? 1 : this.param.page %}
+{% set prevPageBtn = pageNumber - 1 == 0 ? 'disabled' : pageNumber - 1 %}
+{% set prevPage = pageNumber - 1 == 0 ? 'd-none' : pageNumber - 1 %}
+{% set nextPageBtn = pageNumber + 1 > pageNumbers ? 'disabled' : pageNumber + 1 %}
+{% set nextPage = pageNumber + 1 > pageNumbers ? 'd-none' : pageNumber + 1 %}
+
+<!-- Content -->
 {% partial "header-pages" %}
 
-{% partial "blog/blog-card" %}
+<!--{% partial "blog/blog-card" %}-->
+
+<div class="container my-5">
+    <div class="mb-5 d-flex flex-wrap gap-5 justify-content-center">
+        {% for item in blog %}
+        <div class="card" style="width: 18rem;">
+            <img src={{item.banner.path}} class="card-img-top" alt="blog">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.featured_text}}</p>
+                <p>{{item.published_at_date|date('j M Y')}}</p>
+                <a href="{{'blog-single'|page({slug: item.slug})}}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {{prevPageBtn}}">
+                <a class="page-link" href="{{'blog'|page({page: prevPageBtn})}}">Назад</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link {{prevPage}}" href="{{'blog'|page({page: prevPage})}}">{{prevPage}}</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" disabled>{{pageNumber}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link {{nextPage}}" href="{{'blog'|page({page: nextPage})}}">{{nextPage}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link {{nextPageBtn}}" href="{{'blog'|page({page: nextPageBtn})}}">Вперед</a>
+            </li>
+        </ul>
+    </nav>
+</div>

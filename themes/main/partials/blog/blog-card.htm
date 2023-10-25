@@ -1,11 +1,12 @@
 [collection blog]
 handle = "Blog\Post"
+recordsPerPage = 3
+pageNumber = "{{ :page }}"
 ==
 <div class="container my-5">
     <div class="mb-5 d-flex flex-wrap gap-5 justify-content-center">
         {% for item in blog %}
         <div class="card" style="width: 18rem;">
-<!--            <img src={{"assets/images/blog.png"|theme}} class="card-img-top" alt="blog">-->
             <img src={{item.banner.path}} class="card-img-top" alt="blog">
             <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
