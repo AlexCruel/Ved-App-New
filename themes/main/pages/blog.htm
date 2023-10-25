@@ -12,6 +12,7 @@ use Tailor\Models\EntryRecord;
 
 function onStart()
 {
+    // For init page and blog functions
     $blogArray = array();
 
     foreach ($this->blog as $item)
@@ -19,31 +20,23 @@ function onStart()
         array_push($blogArray, $item);
     }
 
-    if (!count($blogArray))
+    $this['currentPage'] = $this->blog['record']->currentPage();
+    $this['lastPage'] = $this->blog['record']->lastPage();
+    $this['total'] = $this->blog['record']->total();
+    $this['perPage'] = $this->blog['record']->perPage();
+
+    if (!$this->blog['record']->items())
     {
         return Redirect::to('/404');
     } else {
-        $records = EntryRecord::inSection('Blog\Post')->get();
-        $pageNumbers = array();
-
-        for ($i = 0; $i < ceil(count($records) / 2); $i++)
-        {
-            array_push($pageNumbers, $i);
-        }
-
-        $this['pageNumbers'] = count($pageNumbers);
+        $this['prevPageBtn'] = $this['currentPage'] - 1 == 0 ? 'disabled' : $this['currentPage'] - 1;
+        $this['prevPage'] = $this['currentPage'] - 1 == 0 ? 'd-none' : $this['currentPage'] - 1;
+        $this['nextPageBtn'] = $this['currentPage'] + 1 > $this['lastPage'] ? 'disabled' : $this['currentPage'] + 1;
+        $this['nextPage'] = $this['currentPage'] + 1 > $this['lastPage'] ? 'd-none' : $this['currentPage'] + 1;
     }
 }
 ?>
 ==
-<!-- Vars -->
-{% set pageNumber = this.param.page == '' ? 1 : this.param.page %}
-{% set prevPageBtn = pageNumber - 1 == 0 ? 'disabled' : pageNumber - 1 %}
-{% set prevPage = pageNumber - 1 == 0 ? 'd-none' : pageNumber - 1 %}
-{% set nextPageBtn = pageNumber + 1 > pageNumbers ? 'disabled' : pageNumber + 1 %}
-{% set nextPage = pageNumber + 1 > pageNumbers ? 'd-none' : pageNumber + 1 %}
-
-<!-- Content -->
 {% partial "header-pages" %}
 
 <!--{% partial "blog/blog-card" %}-->
@@ -72,13 +65,13 @@ function onStart()
                 <a class="page-link {{prevPage}}" href="{{'blog'|page({page: prevPage})}}">{{prevPage}}</a>
             </li>
             <li class="page-item active" aria-current="page">
-                <a class="page-link" disabled>{{pageNumber}}</a>
+                <a class="page-link" disabled>{{currentPage}}</a>
             </li>
             <li class="page-item">
                 <a class="page-link {{nextPage}}" href="{{'blog'|page({page: nextPage})}}">{{nextPage}}</a>
             </li>
-            <li class="page-item">
-                <a class="page-link {{nextPageBtn}}" href="{{'blog'|page({page: nextPageBtn})}}">Вперед</a>
+            <li class="page-item {{nextPageBtn}}">
+                <a class="page-link" href="{{'blog'|page({page: nextPageBtn})}}">Вперед</a>
             </li>
         </ul>
     </nav>
