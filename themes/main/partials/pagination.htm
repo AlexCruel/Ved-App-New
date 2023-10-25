@@ -1,0 +1,50 @@
+==
+<?php
+use Tailor\Models\EntryRecord;
+
+function onStart()
+{
+    // For init page and blog functions
+    $blogArray = array();
+
+    foreach ($this->blog as $item)
+    {
+        array_push($blogArray, $item);
+    }
+
+    $this['currentPage'] = $this->blog['record']->currentPage();
+    $this['lastPage'] = $this->blog['record']->lastPage();
+    $this['total'] = $this->blog['record']->total();
+    $this['perPage'] = $this->blog['record']->perPage();
+
+    if (!$this->blog['record']->items())
+    {
+        return Redirect::to('/404');
+    } else {
+        $this['prevPageBtn'] = $this['currentPage'] - 1 == 0 ? 'disabled' : $this['currentPage'] - 1;
+        $this['prevPage'] = $this['currentPage'] - 1 == 0 ? 'd-none' : $this['currentPage'] - 1;
+        $this['nextPageBtn'] = $this['currentPage'] + 1 > $this['lastPage'] ? 'disabled' : $this['currentPage'] + 1;
+        $this['nextPage'] = $this['currentPage'] + 1 > $this['lastPage'] ? 'd-none' : $this['currentPage'] + 1;
+    }
+}
+?>
+==
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item {{prevPageBtn}}">
+            <a class="page-link" href="{{'blog'|page({page: prevPageBtn})}}">Назад</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link {{prevPage}}" href="{{'blog'|page({page: prevPage})}}">{{prevPage}}</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" disabled>{{currentPage}}</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link {{nextPage}}" href="{{'blog'|page({page: nextPage})}}">{{nextPage}}</a>
+        </li>
+        <li class="page-item {{nextPageBtn}}">
+            <a class="page-link" href="{{'blog'|page({page: nextPageBtn})}}">Вперед</a>
+        </li>
+    </ul>
+</nav>
