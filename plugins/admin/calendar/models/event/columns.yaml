@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    date_reserv:
+        label: 'Резерв даты'
+        type: text
+        searchable: true
+        sortable: true
+    type:
+        label: Тип
+        type: text
+        searchable: true
+        sortable: true
+    person:
+        label: ФИО
+        type: text
+        searchable: true

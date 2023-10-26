@@ -1,0 +1,11 @@
+plugin:
+    name: 'admin.calendar::lang.plugin.name'
+    description: 'admin.calendar::lang.plugin.description'
+    author: admin
+    icon: oc-icon-calendar
+    homepage: ''
+navigation:
+    main-menu-calendar:
+        label: 'Календарь событий'
+        url: admin/calendar/events
+        icon: icon-calendar

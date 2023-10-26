@@ -2,6 +2,113 @@ url = "/calendar"
 layout = "default"
 title = "Календарь"
 ==
+<?php
+use Admin\Calendar\Models\Event;
+
+function changeLangMonth($month)
+{
+    switch ($month)
+    {
+        case 'January':
+            return 'Январь';
+        case 'February':
+            return 'Февраль';
+        case 'March':
+            return 'Март';
+        case 'April':
+            return 'Апрель';
+        case 'May':
+            return 'Май';
+        case 'June':
+            return 'Июнь';
+        case 'July':
+            return 'Июль';
+        case 'August':
+            return 'Август';
+        case 'September':
+            return 'Сентябрь';
+        case 'October':
+            return 'Октябрь';
+        case 'November':
+            return 'Ноябрь';
+        case 'December':
+            return 'Декабрь';
+        default:
+            return '';
+    }
+}
+
+function onSelectMonthYear()
+{
+    $this['month'] = input('selectMonth');
+    $this['monthRU'] = $this->changeLangMonth($this['month']);
+    $this['year'] = input('selectYear');
+
+    $events = Event::where(DB::raw('MONTHNAME(`date_reserv`)'), '=', $this['month'])
+        ->where(DB::raw('YEAR(`date_reserv`)'), '=', $this['year'])
+        ->get();
+
+    $this['events'] = $events;
+
+    $this['eventsCount'] = count($this['events']);
+
+    return ['#month' => $this['monthRU'], '#year' => $this['year']];
+}
+
+function onStart()
+{
+    $this['month'] = date('F');
+    $this['monthRU'] = $this->changeLangMonth($this['month']);
+    $this['year'] = date('Y');
+    $this['nextYear'] = date('Y', strtotime('+1 year'));
+
+    $events = Event::where(DB::raw('MONTHNAME(`date_reserv`)'), '=', $this['month'])
+        ->where(DB::raw('YEAR(`date_reserv`)'), '=', $this['year'])
+        ->get();
+
+    $this['events'] = $events;
+    $this['eventsCount'] = count($this['events']);
+}
+?>
+==
 {% partial "header-pages" %}
 
-{% partial "calendar" %}
+<div class="container my-5">
+    <h2>
+        <span id="month">{{monthRU}}</span>
+        <span id="year">{{year}}</span>
+    </h2>
+    <section id="myCalendar">
+        {% partial "calendar" %}
+    </section>
+
+    <section>
+        <form data-request="onSelectMonthYear" data-request-update="{calendar: '#myCalendar'}">
+            <select name="selectMonth" class="form-select mb-3" aria-label="Default select example">
+                <option value="January">Январь</option>
+                <option value="February">Февраль</option>
+                <option value="March">Март</option>
+                <option value="April">Апрель</option>
+                <option value="May">Май</option>
+                <option value="June">Июнь</option>
+                <option value="July">Июль</option>
+                <option value="August">Август</option>
+                <option value="September">Сентябрь</option>
+                <option value="October">Октябрь</option>
+                <option value="November">Ноябрь</option>
+                <option value="December">Декабрь</option>
+            </select>
+
+            <select name="selectYear" class="form-select mb-3" aria-label="Default select example">
+                <option value="2023">{{year}}</option>
+                <option value="2024">{{nextYear}}</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary fw-semibold text-white">
+                Выбрать
+            </button>
+        </form>
+    </section>
+</div>
+
+{% partial "form" %}

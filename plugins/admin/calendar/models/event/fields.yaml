@@ -1,0 +1,22 @@
+fields:
+    date_reserv:
+        label: 'Резерв даты'
+        span: auto
+        type: datepicker
+    type:
+        label: 'Тип события'
+        options:
+            Свадьба: Свадьба
+            Юбилей: Юбилей
+        showSearch: true
+        span: auto
+        type: dropdown
+    person:
+        label: ФИО
+        span: auto
+        type: text
+    comment:
+        label: Комментарий
+        size: large
+        span: full
+        type: textarea

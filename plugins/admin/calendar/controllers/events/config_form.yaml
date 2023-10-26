@@ -1,0 +1,10 @@
+name: Events
+form: $/admin/calendar/models/event/fields.yaml
+modelClass: Admin\Calendar\Models\Event
+defaultRedirect: admin/calendar/events
+create:
+    redirect: 'admin/calendar/events/update/:id'
+    redirectClose: admin/calendar/events
+update:
+    redirect: admin/calendar/events
+    redirectClose: admin/calendar/events
