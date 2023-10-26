@@ -3,16 +3,17 @@ js[] = "calendar.js"
 scss[] = "calendar.scss"
 ==
 {% if eventsCount != 0 %}
-    <table class="table table-striped">
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Дата</th>
                 <th scope="col">Тип события</th>
                 <th scope="col">Имя</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             {% for key, item in events %}
             <tr>
                 <th scope="row">{{key + 1}}</th>
@@ -21,8 +22,9 @@ scss[] = "calendar.scss"
                 <td>{{item.person}}</td>
             </tr>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 {% else %}
     <div class="fw-semibold">Нет событий месяца</div>
 {% endif %}
