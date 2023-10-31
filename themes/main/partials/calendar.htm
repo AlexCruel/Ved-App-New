@@ -10,7 +10,6 @@ scss[] = "calendar.scss"
                 <th scope="col">#</th>
                 <th scope="col">Дата</th>
                 <th scope="col">Тип события</th>
-                <th scope="col">Имя</th>
             </tr>
             </thead>
             <tbody>
@@ -19,7 +18,6 @@ scss[] = "calendar.scss"
                 <th scope="row">{{key + 1}}</th>
                 <td>{{item.date_reserv}}</td>
                 <td>{{item.type}}</td>
-                <td>{{item.person}}</td>
             </tr>
             {% endfor %}
             </tbody>

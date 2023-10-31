@@ -49,6 +49,13 @@ function onSelectMonthYear()
         ->get();
 
     $this['events'] = $events;
+    $newEvents = [];
+
+    // change date format
+    foreach ($events as $event)
+    {
+        $event['date_reserv'] = date("d.m.y H:i", strtotime($event['date_reserv']));
+    }
 
     $this['eventsCount'] = count($this['events']);
 
