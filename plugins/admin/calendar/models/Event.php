@@ -21,4 +21,20 @@ class Event extends Model
     public $rules = [
     ];
 
+    // Get tags for Dropdown widget
+    // Name is "tag_id" equals TagId
+    public function getTagIdOptions()
+    {
+        $tags = Tag::all();
+
+        $tagsArr = [];
+        $tagsArr['0'] = 'Выбрать событие';  // Default non-value
+
+        foreach ($tags as $item)
+        {
+            $tagsArr[$item['id']] = $item['name'];
+        }
+
+        return $tagsArr;
+    }
 }

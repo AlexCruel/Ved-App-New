@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    name:
+        label: 'Название события'
+        type: text
+        searchable: true

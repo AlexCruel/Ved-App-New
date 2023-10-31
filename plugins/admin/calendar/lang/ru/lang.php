@@ -1,6 +1,9 @@
 <?php return [
     'plugin' => [
         'name' => 'Calendar',
-        'description' => 'Календарь событий'
-    ]
+        'description' => 'Календарь событий',
+    ],
+    'q' => [
+        'q' => 'Выбрать',
+    ],
 ];

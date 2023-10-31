@@ -3,13 +3,12 @@ fields:
         label: 'Резерв даты'
         span: auto
         type: datepicker
-    type:
+    tag_id:
         label: 'Тип события'
-        options:
-            Свадьба: Свадьба
-            Юбилей: Юбилей
-        showSearch: true
+        showSearch: 1
         span: auto
+        placeholder: ''
+        default: ''
         type: dropdown
     person:
         label: ФИО

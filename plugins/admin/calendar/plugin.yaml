@@ -9,3 +9,12 @@ navigation:
         label: 'Календарь событий'
         url: admin/calendar/events
         icon: icon-calendar
+        sideMenu:
+            side-menu-calendar-events:
+                label: Календарь
+                url: admin/calendar/events
+                icon: icon-calendar-o
+            side-menu-calendar-tags:
+                label: 'Типы событий'
+                url: admin/calendar/tags
+                icon: icon-tags

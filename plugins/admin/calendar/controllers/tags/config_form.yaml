@@ -1,0 +1,10 @@
+name: Tags
+form: $/admin/calendar/models/tag/fields.yaml
+modelClass: Admin\Calendar\Models\Tag
+defaultRedirect: admin/calendar/tags
+create:
+    redirect: 'admin/calendar/tags/update/:id'
+    redirectClose: admin/calendar/tags
+update:
+    redirect: admin/calendar/tags
+    redirectClose: admin/calendar/tags

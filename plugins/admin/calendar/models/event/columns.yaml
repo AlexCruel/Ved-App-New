@@ -9,11 +9,6 @@ columns:
         type: text
         searchable: true
         sortable: true
-    type:
-        label: Тип
-        type: text
-        searchable: true
-        sortable: true
     person:
         label: ФИО
         type: text

@@ -15,3 +15,24 @@ v1.0.5:
 v1.0.6:
     - 'Updated table admin_calendar_events'
     - builder_table_update_admin_calendar_events_4.php
+v1.0.7:
+    - 'Created table admin_calendar_tags'
+    - builder_table_create_admin_calendar_tags.php
+v1.0.8:
+    - 'Created table admin_calendar_tags_events'
+    - builder_table_create_admin_calendar_tags_events.php
+v1.0.9:
+    - 'Updated table admin_calendar_tags'
+    - builder_table_update_admin_calendar_tags.php
+v1.0.10:
+    - 'Updated table admin_calendar_tags'
+    - builder_table_update_admin_calendar_tags_2.php
+v1.0.11:
+    - 'Updated table admin_calendar_events'
+    - builder_table_update_admin_calendar_events_5.php
+v1.0.12:
+    - 'Updated table admin_calendar_events'
+    - builder_table_update_admin_calendar_events_6.php
+v1.0.13:
+    - 'Updated table admin_calendar_events'
+    - builder_table_update_admin_calendar_events_7.php

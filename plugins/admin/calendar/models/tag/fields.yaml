@@ -1,0 +1,5 @@
+fields:
+    name:
+        label: 'Название события'
+        span: auto
+        type: text
