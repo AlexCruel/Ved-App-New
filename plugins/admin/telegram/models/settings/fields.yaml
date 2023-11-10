@@ -1,0 +1,9 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    bot_token:
+        label: Токен бота
+    chat_id:
+        label: ID чата

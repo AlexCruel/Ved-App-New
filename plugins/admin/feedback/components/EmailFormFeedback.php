@@ -1,6 +1,7 @@
 <?php namespace Admin\Feedback\Components;
 
 use Admin\Feedback\Models\Form;
+use Admin\Telegram\Classes\Telegram;
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -48,6 +49,16 @@ class EmailFormFeedback extends ComponentBase
             $form = new Form();
             $form->fill($data);
             $form->save();
+
+            // Send to the telegram bot
+            $url = config('app.url');
+            $message = "Форма отправки Email
+
+<i>Id</i>: $form->id
+<i>Email</i>: $form->email
+<i>Cсылка</i>: $url/myoctober/admin/admin/feedback/forms/update/$form->id";
+
+            Telegram::sendMessage($message);
 
             return [
                 '#successToast' => $this->renderPartial('@successEmailForm.htm')

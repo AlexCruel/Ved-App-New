@@ -1,0 +1,8 @@
+{
+    "name": "admin/telegram-plugin",
+    "type": "october-plugin",
+    "description": "Telegram plugin for notifications",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
