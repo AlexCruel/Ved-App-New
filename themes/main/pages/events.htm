@@ -1,6 +1,11 @@
 url = "/events"
 layout = "default"
 title = "Мероприятия"
+
+[FullFormFeedback]
+
+[resources]
+js[] = "toast.js"
 ==
 {% partial "header-pages" %}
 
@@ -85,4 +90,4 @@ title = "Мероприятия"
     <button class="btn btn-primary btn-lg text-white">Написать</button>
 </section>
 
-{% partial "form" %}
+{% component 'FullFormFeedback' %}
