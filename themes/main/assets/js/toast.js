@@ -1,7 +1,13 @@
 function toastHandler(type) {
-    const toast = document.getElementsByClassName(type);
-
     setTimeout(() => {
-        toast[0].remove();
-    }, 5000)
+        const toast = document.getElementById(type);
+        toast.style.opacity = '0';
+        deleteToast(toast);
+    }, 2000)
+}
+
+function deleteToast(toast) {
+    setTimeout(() => {
+        toast.remove();
+    }, 4000)
 }

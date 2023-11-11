@@ -1,6 +1,11 @@
 url = "/calendar"
 layout = "default"
 title = "Календарь"
+
+[FullFormFeedback]
+
+[resources]
+js[] = "toast.js"
 ==
 <?php
 use Admin\Calendar\Models\Event;
@@ -122,4 +127,4 @@ function onStart()
     </section>
 </div>
 
-{% partial "form" %}
+{% component 'FullFormFeedback' %}

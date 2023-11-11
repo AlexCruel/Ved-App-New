@@ -1,6 +1,11 @@
 url = "/about"
 layout = "default"
 title = "Обо мне"
+
+[FullFormFeedback]
+
+[resources]
+js[] = "toast.js"
 ==
 {% partial "header-pages" %}
 
@@ -118,4 +123,4 @@ title = "Обо мне"
     </div>
 </section>
 
-{% partial "form" %}
+{% component 'FullFormFeedback' %}
