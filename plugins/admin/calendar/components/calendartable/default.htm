@@ -1,0 +1,37 @@
+<div class="container my-5">
+    <h2>
+        <span id="month">{{monthRU}}</span>
+        <span id="year">{{year}}</span>
+    </h2>
+    <section id="myCalendar">
+        {% partial "calendar" %}
+    </section>
+
+    <section>
+        <form data-request="onSelectMonthYear" data-request-update="{calendar: '#myCalendar'}">
+            <select name="selectMonth" class="form-select mb-3" aria-label="Default select example">
+                <option value="January">Январь</option>
+                <option value="February">Февраль</option>
+                <option value="March">Март</option>
+                <option value="April">Апрель</option>
+                <option value="May">Май</option>
+                <option value="June">Июнь</option>
+                <option value="July">Июль</option>
+                <option value="August">Август</option>
+                <option value="September">Сентябрь</option>
+                <option value="October">Октябрь</option>
+                <option value="November">Ноябрь</option>
+                <option value="December">Декабрь</option>
+            </select>
+
+            <select name="selectYear" class="form-select mb-3" aria-label="Default select example">
+                <option value={{year}}>{{year}}</option>
+                <option value={{nextYear}}>{{nextYear}}</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary fw-semibold text-white">
+                Выбрать
+            </button>
+        </form>
+    </section>
+</div>
