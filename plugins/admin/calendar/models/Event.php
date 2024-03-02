@@ -21,6 +21,12 @@ class Event extends Model
     public $rules = [
     ];
 
+    public $belongsTo = [
+        'tag' => [
+            Tag::class
+        ]
+    ];
+
     // Get tags for Dropdown widget
     // Name is "tag_id" equals TagId
     public function getTagIdOptions()

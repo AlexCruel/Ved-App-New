@@ -1,7 +1,7 @@
 <?php namespace Admin\Calendar\Components;
 
+use Admin\Calendar\Models\Event;
 use Cms\Classes\ComponentBase;
-use Illuminate\Support\Facades\DB;
 
 /**
  * CalendarTable Component
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
  */
 class CalendarTable extends ComponentBase
 {
-    public function componentDetails()
+    public function componentDetails(): array
     {
         return [
             'name' => 'Календарь событий',
@@ -21,14 +21,14 @@ class CalendarTable extends ComponentBase
     /**
      * @link https://docs.octobercms.com/3.x/element/inspector-types.html
      */
-    public function defineProperties()
+    public function defineProperties(): array
     {
         return [];
     }
 
-    public function onRun()
+    public function onRun(): void
     {
-        $this->page['month'] = date('F');
+        $this->page['month'] = date('m');
         $this->page['monthRU'] = $this->changeLangMonth($this->page['month']);
         $this->page['year'] = date('Y');
         $this->page['nextYear'] = date('Y', strtotime('+1 year'));
@@ -37,7 +37,7 @@ class CalendarTable extends ComponentBase
         $this->page['eventsCount'] = count($this->page['events']);
     }
 
-    public function onSelectMonthYear()
+    public function onSelectMonthYear(): array
     {
         $this->page['month'] = input('selectMonth');
         $this->page['monthRU'] = $this->changeLangMonth($this->page['month']);
@@ -49,12 +49,12 @@ class CalendarTable extends ComponentBase
         return ['#month' => $this->page['monthRU'], '#year' => $this->page['year']];
     }
 
-    public function getEvents($month, $year)
+    public function getEvents($month, $year): \Illuminate\Database\Eloquent\Collection|array
     {
-        $events = DB::table('admin_calendar_tags_events_view')
-            ->where(DB::raw('YEAR(`date_reserv`)'), '=', $year)
-            ->where(DB::raw('MONTHNAME(`date_reserv`)'), '=', $month)
-            ->select('date_reserv', 'tag_name')
+        $events = Event::query()
+            ->with('tag')
+            ->whereYear('date_reserv', '=', $year)
+            ->whereMonth('date_reserv', '=', $month)
             ->get();
 
         // change date format
@@ -66,33 +66,33 @@ class CalendarTable extends ComponentBase
         return $events;
     }
 
-    public function changeLangMonth($month)
+    public function changeLangMonth($month): string
     {
         switch ($month)
         {
-            case 'January':
+            case '1':
                 return 'Январь';
-            case 'February':
+            case '2':
                 return 'Февраль';
-            case 'March':
+            case '3':
                 return 'Март';
-            case 'April':
+            case '4':
                 return 'Апрель';
-            case 'May':
+            case '5':
                 return 'Май';
-            case 'June':
+            case '6':
                 return 'Июнь';
-            case 'July':
+            case '7':
                 return 'Июль';
-            case 'August':
+            case '8':
                 return 'Август';
-            case 'September':
+            case '9':
                 return 'Сентябрь';
-            case 'October':
+            case '10':
                 return 'Октябрь';
-            case 'November':
+            case '11':
                 return 'Ноябрь';
-            case 'December':
+            case '12':
                 return 'Декабрь';
             default:
                 return 'Январь';
